@@ -1,6 +1,11 @@
 import {Request, Response} from "express"
 import express from "express";
 
+//testes
+
+const nome: string = 'lele'
+
+
 const app = express();
 
 app.get("/health", (_req : Request, res : Response) => {
