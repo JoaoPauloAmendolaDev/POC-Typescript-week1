@@ -3,13 +3,6 @@ import express from "express";
 import movieRouter from "./routes/moviesRoute.js";
 import cors from "cors"
 
-
-//testes
-
-const nome: string = 'lele'
-
-
-
 const app = express();
 
 app.use(cors())

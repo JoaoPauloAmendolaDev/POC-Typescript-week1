@@ -1,5 +1,5 @@
 import {Request, Response} from "express"
-import { getMovieRepository, postMovieRepository, deleteMovieRepository } from "../repositories/movieRepository.js"
+import { getMovieRepository, postMovieRepository, deleteMovieRepository, updateMovieRepository } from "../repositories/movieRepository.js"
 
 export async function postMovie(req: Request, res: Response){
     const filmData : {
@@ -8,14 +8,13 @@ export async function postMovie(req: Request, res: Response){
         done : boolean,
         genre: string
     } = req.body
-
-    
     try {
-
         const postFilmData = await postMovieRepository(filmData)
-
-        res.sendStatus(200)
-
+        if(postFilmData){
+            return res.sendStatus(201)
+        } else{
+            return res.sendStatus(500)
+        }
     } catch (error) {
         return res.send(error).status(500)
     }
@@ -50,4 +49,30 @@ export async function deleteMovie(req: Request, res: Response){
     } catch (error) {
         return res.send(error).status(500)
     }
+}
+
+export async function updateMovie(req : Request, res : Response){
+    const id : number = Number(req.params.id)
+    const newData : {
+        name : string,
+        episodes : number,
+        done : boolean,
+        genre : string
+    } = req.body
+
+    try {
+
+        const updateMovie = await updateMovieRepository(newData, id)
+        
+        if(updateMovie){
+            return res.sendStatus(201)
+        } else{
+            return res.sendStatus(500)
+        }
+
+
+    } catch (error) {
+        return res.send(error).status(500)
+    }
+
 }
