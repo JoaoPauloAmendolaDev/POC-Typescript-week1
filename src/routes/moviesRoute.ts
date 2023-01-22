@@ -1,4 +1,4 @@
-import { postMovie, getMovies, deleteMovie, updateMovie } from "../controllers/postMovie.js";
+import { postMovie, getMovies, deleteMovie, updateMovie, getMovieCount } from "../controllers/postMovie.js";
 import { validateSchema } from "../middlewares/schemaValidator.js";
 import { movieSchema } from "../models/moviesModel.js";
 import { Router } from "express";

@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:4000/health",
-    "url": "localhost:4000/movieUpdate/1",
-    "method": "PATCH",
+    "url": "localhost:4000/movieCount",
+    "method": "GET",
     "sortNum": 0,
     "created": "2023-01-18T12:40:03.206Z",
-    "modified": "2023-01-22T20:36:01.186Z",
+    "modified": "2023-01-22T20:43:11.019Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\" : \"Filme do João Paulo\",\n  \"episodes\" : 15,\n  \"done\" : true,\n  \"genre\" : 5\n}",
+      "raw": "{\n  \"name\" : \"Filme do João Paulo\",\n  \"episodes\" : 15,\n  \"done\" : true,\n  \"genre\" : \"comédia\"\n}",
       "form": []
     },
     "tests": []

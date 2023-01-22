@@ -59,3 +59,17 @@ try {
     return false
 }
 }
+
+export async function movieCountRepository(){
+
+    try {
+        const data:QueryResult = await connection.query(
+            `SELECT COUNT(m.id) AS movies_count FROM movies AS m;`
+        ) 
+        return data.rows[0]
+
+    } catch (error) {
+        return false
+    }
+
+}

@@ -1,5 +1,5 @@
 import {Request, Response} from "express"
-import { getMovieRepository, postMovieRepository, deleteMovieRepository, updateMovieRepository } from "../repositories/movieRepository.js"
+import { getMovieRepository, postMovieRepository, deleteMovieRepository, updateMovieRepository, movieCountRepository } from "../repositories/movieRepository.js"
 
 export async function postMovie(req: Request, res: Response){
     const filmData : {
@@ -74,5 +74,24 @@ export async function updateMovie(req : Request, res : Response){
     } catch (error) {
         return res.send(error).status(500)
     }
+
+}
+
+export async function getMovieCount(req : Request, res : Response){
+    try {
+
+        const movieCount = await movieCountRepository()
+        if(movieCount){
+            return res.send(movieCount).status(200)
+        }
+        
+    } catch (error) {
+        return res.sendStatus(500)
+    }
+
+
+
+
+
 
 }
