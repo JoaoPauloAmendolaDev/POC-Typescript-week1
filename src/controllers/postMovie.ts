@@ -1,16 +1,20 @@
-import { movieSchema } from "../models/moviesModel";
 import {Request, Response} from "express"
+import { postMovieRepository } from "../repositories/movieRepository.js"
 
 export async function postMovie(req: Request, res: Response){
-    const {filmName} = req.body
+    const filmData : {
+        name : string,
+        episodes : number,
+        done : boolean,
+        genre: string
+    } = req.body
 
+    
     try {
 
-        if (!filmName){
-            return res.sendStatus(401)
-        }
+        const postFilmData = await postMovieRepository(filmData)
 
-        
+        res.sendStatus(200)
 
     } catch (error) {
         return res.send(error).status(500)

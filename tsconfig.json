@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
+    "rootDirs" : ["src", "tests"],
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
